@@ -25,40 +25,10 @@ class App extends React.Component {
         }
     }
 
-    example(e){
-        e.preventDefault()
-        axios.post('https://saltiest-server.herokuapp.com/api/comments', 
-        {
-            username: 'string',
-            comment_toxicity: 45,
-            comment: 'this is where the comment is',
-            users_id: '1'
-        }, 
-        {
-            headers: {
-                Authorization: localStorage.getItem("token")
-            }
-        }
-        )
-        .then(res=>console.log(res))
-        .catch(err=> console.log(err))
-    }
-    getme(e){
-        e.preventDefault()
-        axios.get(`https://saltiest-server.herokuapp.com/api/comments`, {
-            headers : 
-            {Authorization: localStorage.getItem("token")}
-        })
-        .then(res=>console.log(res.data))
-        .catch(err=> console.log(err))
-    }
-
     render(){
     return (
             
             <div style={this.styleAplication()}>
-            <h1 onClick={this.example}>click me </h1>
-            <h2 onClick={this.getme}>get me</h2>
              <Router>
             <NavBar />
              <Switch>
